@@ -9,4 +9,3 @@ I Made this project for fun :v
 - Arrow Key: Select
 - Enter/Z: Action/Press Enter
 - Esc: Pause the game/Quit Game (if you in main menu)
-- F11: Full Screen
