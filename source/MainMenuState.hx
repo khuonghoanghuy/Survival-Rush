@@ -1,6 +1,6 @@
 package;
 
-class PlayState extends MainState
+class MainMenuState extends MainState
 {
 	override public function create()
 	{

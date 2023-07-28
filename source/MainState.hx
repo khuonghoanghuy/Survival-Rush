@@ -10,6 +10,9 @@ class MainState extends FlxState
 		super.create();
 
 		FlxG.save.bind("dataGame", "survivalRush");
+		#if debug
+		flixel.addons.studio.FlxStudio.create();
+		#end
 	}
 
 	override public function update(elapsed:Float):Void
