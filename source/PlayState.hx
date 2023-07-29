@@ -1,9 +1,9 @@
 package;
 
 import flixel.FlxG;
-import flixel.FlxSprite;
-import flixel.graphics.frames.FlxAtlasFrames;
+import flixel.addons.ui.FlxButtonPlus;
 import flixel.text.FlxText;
+import flixel.util.FlxColor;
 
 class PlayState extends MainState
 {
@@ -14,9 +14,10 @@ class PlayState extends MainState
 	var playerHealth:Int = 5;
 	var infoText:FlxText;
 
-	var buttonFIGHT:FlxSprite;
+	var buttonFIGHT:FlxButtonPlus;
+	var buttonSPACE:FlxButtonPlus;
 
-	var buttonSPACE:FlxSprite;
+	var tunpadTxt:FlxText;
 
 	override public function create()
 	{
@@ -29,74 +30,74 @@ class PlayState extends MainState
 		infoText.scrollFactor.set();
 		add(infoText);
 
-		var buttonTex = FlxAtlasFrames.fromSparrow(AssetPaths.buttonSelect__png, AssetPaths.buttonSelect__xml);
-
-		buttonFIGHT = new FlxSprite(60, 310);
-		buttonFIGHT.frames = buttonTex;
-		buttonFIGHT.animation.addByPrefix("idle", "fight");
-		buttonFIGHT.animation.addByPrefix("select", "fight_select");
+		buttonFIGHT = new FlxButtonPlus(5, 175, getFIGHT, "FIGHT");
 		buttonFIGHT.scrollFactor.set();
-		buttonFIGHT.animation.play("idle");
+		buttonFIGHT.color = FlxColor.RED;
 		add(buttonFIGHT);
 
-		buttonSPACE = new FlxSprite(375, 310);
-		buttonSPACE.frames = buttonTex;
-		buttonSPACE.animation.addByPrefix("idle", "space");
-		buttonSPACE.animation.addByPrefix("select", "space_select");
+		buttonSPACE = new FlxButtonPlus(5, 230, getSPACE, "SPACE");
 		buttonSPACE.scrollFactor.set();
-		buttonSPACE.animation.play("idle");
 		add(buttonSPACE);
+
+		tunpadTxt = new FlxText(248, 277, 0, "", 16);
+		tunpadTxt.scrollFactor.set();
+		tunpadTxt.alignment = CENTER;
+		add(tunpadTxt);
+
+		tunpadTxt.text = "BEGIN A FIGHT";
+	}
+
+	var daFight:Bool = false;
+	var daSpace:Bool = false;
+
+	function getFIGHT()
+	{
+		daFight = true;
+	}
+
+	function getSPACE()
+	{
+		daSpace = true;
 	}
 
 	override public function update(elapsed:Float)
 	{
 		super.update(elapsed);
 
-		var daFight = false;
-		var daSpace = false;
-
 		infoText.text = "Player: " + playerHealth + "\nBoss: " + bossSprite.health;
 
-		// fight button
-		if (FlxG.mouse.overlaps(buttonFIGHT) && FlxG.mouse.justPressed)
+		if (FlxG.keys.justPressed.ESCAPE)
 		{
-			buttonFIGHT.animation.play("select");
-			daFight = true;
-		}
-
-		// space button
-		if (FlxG.mouse.overlaps(buttonSPACE) && FlxG.mouse.justPressed)
-		{
-			buttonSPACE.animation.play("select");
-			daSpace = true;
+			openSubState(new WarmSubState("- PAUSE -\nPress ANY Key to resume", false));
 		}
 
 		if (daFight)
 		{
+			tunpadTxt.text = "YOU CHOOSE FIGHT";
 			if (FlxG.random.bool(bossSprite.chance))
 			{
 				bossSprite.animation.play("idle", false);
 				bossSprite.health -= 0;
 				trace("boss dodge that hit, no health was minus");
+				playerHealth -= bossSprite.hitPlayer;
+				tunpadTxt.text = "BUT BOSS WAS DODGE\nYOU GET HIT!";
 			}
 			else
 			{
 				bossSprite.animation.play("hit", false);
 				bossSprite.health -= 10; // basic weapon
 				trace("player hit boss, boss only have " + bossSprite.health + " live left");
+				tunpadTxt.text = "BOSS HIT YOUR DAMAGE!";
 			}
-		}
-		else
-		{
 			bossSprite.animation.play("idle", false);
 			daFight = false;
-			playerHealth -= bossSprite.hitPlayer;
 		}
 
 		if (daSpace)
 		{
 			bossSprite.space--;
 			daSpace = false;
+			tunpadTxt.text = "YOU SPARE BOSS";
 		}
 
 		// fight
@@ -110,6 +111,13 @@ class PlayState extends MainState
 		{
 			openSubState(new WarmSubState("YOU WIN\nYes you are win this game!\nYou Not Press Fight and You just Hit Space\n\nPress ANY Key to return Main Menu",
 				true));
+		}
+
+		// game over
+		if (playerHealth == 0)
+		{
+			// just call `true` anyways
+			openSubState(new WarmSubState("YOU LOST\nBETTER LUCK NEXT TIME\n\nPress ANY Key to return Main Menu", true));
 		}
 	}
 }
