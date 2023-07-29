@@ -21,6 +21,7 @@ class MainMenuState extends MainState
 	var selectString:String = '';
 
 	var descText:FlxText;
+	var hintText:FlxText;
 
 	override public function create()
 	{
@@ -49,7 +50,7 @@ class MainMenuState extends MainState
 		#end
 
 		selectText = new FlxText(382, 277, 0, "< " + selectString + " >", 12);
-		selectText.alignment = LEFT;
+		selectText.alignment = CENTER;
 		selectText.scrollFactor.set();
 		add(selectText);
 
@@ -57,11 +58,18 @@ class MainMenuState extends MainState
 		descText.scrollFactor.set();
 		descText.alignment = CENTER;
 		add(descText);
+
+		hintText = new FlxText(10, FlxG.height - 22, 0, "PRESS R TO PLAY AS RUSH MODE: " + FlxG.save.data.rushMode, 12);
+		hintText.scrollFactor.set();
+		hintText.alignment = LEFT;
+		add(hintText);
 	}
 
 	override public function update(elapsed:Float)
 	{
 		super.update(elapsed);
+
+		hintText.text = "PRESS R TO PLAY AS RUSH MODE: " + FlxG.save.data.rushMode;
 
 		selectText.text = "< " + selectString + " >";
 
@@ -100,6 +108,11 @@ class MainMenuState extends MainState
 			{
 				selectBoss++;
 			}
+		}
+
+		if (FlxG.keys.justPressed.R)
+		{
+			FlxG.save.data.rushMode = !FlxG.save.data.rushMode;
 		}
 	}
 

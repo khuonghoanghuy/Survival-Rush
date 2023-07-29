@@ -43,7 +43,17 @@ class WarmSubState extends FlxSubState
 			if (wasWin)
 			{
 				close();
-				FlxG.switchState(new MainMenuState());
+				if (FlxG.save.data.rushMode)
+				{
+					PlayState.getBoss++;
+					FlxG.switchState(new PlayState());
+					if (PlayState.getBoss == 3)
+					{
+						FlxG.switchState(new MainMenuState());
+					}
+				}
+				else
+					FlxG.switchState(new MainMenuState());
 			}
 			else
 			{
