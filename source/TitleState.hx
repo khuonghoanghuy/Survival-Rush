@@ -6,34 +6,35 @@ import flixel.util.FlxColor;
 import haxe.Http;
 import lime.app.Application;
 
+using StringTools;
+
 class TitleState extends MainState
 {
 	var text:FlxText;
 	var pressEnter:FlxText;
-	var updateVersion:String;
 	var mustUpdate:Bool;
+
+	var updateVersion:String = '';
 
 	override public function create()
 	{
 		super.create();
 
-		var gameVersion:Http = new Http("https://raw.githubusercontent.com/khuonghoanghuy/Survival-Rush/main/gameVersion.txt");
-		gameVersion.onData = function(data:String)
+		var http = new haxe.Http("https://raw.githubusercontent.com/khuonghoanghuy/Survival-Rush/main/gameVersion.txt");
+		http.onData = function(data:String)
 		{
 			updateVersion = data.split('\n')[0].trim();
-			var curVersion:String = Application.current.meta.get("version").trim();
+			var curVersion:String = version.trim();
 			if (updateVersion != curVersion)
-			{
 				mustUpdate = true;
-			}
-
-			gameVersion.onError = function(error)
-			{
-				trace('error: $error');
-			}
-
-			gameVersion.request();
 		}
+
+		http.onError = function(error)
+		{
+			trace('error: $error');
+		}
+
+		http.request();
 
 		text = new FlxText(183, 72, 268, "Survival Rush", 32);
 		text.height = 44;
