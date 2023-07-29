@@ -6,11 +6,18 @@ import flixel.FlxSubState;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 
+/**
+	A SubState display text
+**/
 class WarmSubState extends FlxSubState
 {
-	public function new(str:String = "")
+	var wasWin:Bool = false;
+
+	public function new(str:String = "", ifWin:Bool)
 	{
 		super();
+
+		wasWin = ifWin;
 
 		var bg:FlxSprite = new FlxSprite();
 		bg.makeGraphic(FlxG.width, FlxG.height, FlxColor.WHITE);
@@ -33,7 +40,15 @@ class WarmSubState extends FlxSubState
 
 		if (FlxG.keys.justPressed.ANY)
 		{
-			close();
+			if (wasWin)
+			{
+				close();
+				FlxG.switchState(new MainMenuState());
+			}
+			else
+			{
+				close();
+			}
 		}
 	}
 }

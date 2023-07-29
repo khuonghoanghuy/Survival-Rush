@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="goolyBoss.png">
+	<!-- Created with Adobe Animate version 20.0.2.22168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="getHIT0000" x="0" y="0" width="198" height="541" frameX="-1" frameY="0" frameWidth="199" frameHeight="541"/>
+	<SubTexture name="getHIT0001" x="0" y="0" width="198" height="541" frameX="-1" frameY="0" frameWidth="199" frameHeight="541"/>
+	<SubTexture name="getHIT0002" x="198" y="0" width="198" height="541" frameX="0" frameY="0" frameWidth="199" frameHeight="541"/>
+	<SubTexture name="getHIT0003" x="198" y="0" width="198" height="541" frameX="0" frameY="0" frameWidth="199" frameHeight="541"/>
+	<SubTexture name="getHIT0004" x="396" y="0" width="198" height="541" frameX="-1" frameY="0" frameWidth="199" frameHeight="541"/>
+	<SubTexture name="getHIT0005" x="396" y="0" width="198" height="541" frameX="-1" frameY="0" frameWidth="199" frameHeight="541"/>
+	<SubTexture name="idle0000" x="594" y="0" width="198" height="541"/>
+	<SubTexture name="idle0001" x="594" y="0" width="198" height="541"/>
+	<SubTexture name="idle0002" x="792" y="0" width="198" height="537" frameX="0" frameY="-4" frameWidth="198" frameHeight="541"/>
+	<SubTexture name="idle0003" x="792" y="0" width="198" height="537" frameX="0" frameY="-4" frameWidth="198" frameHeight="541"/>
+	<SubTexture name="idle0004" x="990" y="0" width="198" height="541"/>
+	<SubTexture name="idle0005" x="990" y="0" width="198" height="541"/>
+	<SubTexture name="idle0006" x="594" y="0" width="198" height="541"/>
+	<SubTexture name="idle0007" x="594" y="0" width="198" height="541"/>
+</TextureAtlas>

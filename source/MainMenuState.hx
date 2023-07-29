@@ -104,7 +104,7 @@ class MainMenuState extends MainState
 	{
 		FlxG.camera.flash(FlxColor.WHITE, 1, function()
 		{
-			openSubState(new WarmSubState("!HEY!\nThat Feature is not working yet!\nPlease wait for a update!\n\nPress ANY Key to close"));
+			openSubState(new WarmSubState("!HEY!\nThat Feature is not working yet!\nPlease wait for a update!\n\nPress ANY Key to close", false));
 		});
 	}
 
