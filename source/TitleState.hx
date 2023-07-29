@@ -34,12 +34,12 @@ class TitleState extends MainState
 		if (FlxG.keys.justPressed.ENTER)
 		{
 			FlxG.camera.flash(FlxColor.WHITE, 1, getNextState);
+			pressEnter.color = FlxColor.YELLOW;
 		}
 	}
 
 	function getNextState()
 	{
-		pressEnter.color = FlxColor.YELLOW;
 		FlxG.switchState(new MainMenuState());
 	}
 }
