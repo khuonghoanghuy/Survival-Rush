@@ -46,7 +46,7 @@ class MainMenuState extends MainState
 		add(buttonExit);
 		#end
 
-		selectText = new FlxText(10, FlxG.height - 10, 10, "< " + selectString + " >", 12);
+		selectText = new FlxText(10, FlxG.height - 22, 0, "< " + selectString + " >", 12);
 		selectText.alignment = LEFT;
 		selectText.scrollFactor.set();
 		add(selectText);
@@ -112,7 +112,7 @@ class MainMenuState extends MainState
 	{
 		FlxG.camera.flash(FlxColor.WHITE, 1, function()
 		{
-			// FlxG.switchState(new PlayState());
+			openSubState(new WarmSubState("!HEY!\nThat Feature is not working yet!\nPlease wait for a update!\n\nPress ANY Key to close", false));
 		});
 	}
 
@@ -121,6 +121,7 @@ class MainMenuState extends MainState
 	{
 		FlxG.camera.flash(FlxColor.WHITE, 1, function()
 		{
+			FlxG.save.flush();
 			Sys.exit(1);
 		});
 	}

@@ -1,10 +1,16 @@
 package;
 
+import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
 
 class Boss extends FlxSprite
 {
+	public var chance:Float;
+	public var getCoin:Int;
+	public var space:Int;
+	public var hitPlayer:Int;
+
 	/**
 		system select boss by int
 	**/
@@ -19,7 +25,7 @@ class Boss extends FlxSprite
 				animation.addByPrefix("idle", "idle", 24, false);
 				animation.addByPrefix("hit", "getHIT", 24, false);
 				animation.play("idle", false);
-				setBoss(216, -130, 199, 541, 0.5, 0.5, 250);
+				setBoss(216, -130, 199, 541, 0.5, 0.5, 250, 1, 30, 20, 100);
 		}
 	}
 
@@ -34,7 +40,7 @@ class Boss extends FlxSprite
 		}
 	}
 
-	function setBoss(x:Float, y:Float, w:Float, h:Float, sc1:Float, sc2:Float, live:Float)
+	function setBoss(x:Float, y:Float, w:Float, h:Float, sc1:Float, sc2:Float, live:Float, hitP:Int, randomChance:Float, spaceCountDown:Int, coin:Int)
 	{
 		trace("getting setup boss");
 		this.x = x;
@@ -43,6 +49,11 @@ class Boss extends FlxSprite
 		this.height = h;
 		scale.set(sc1, sc2);
 		this.health = live;
+		chance = randomChance;
+		FlxG.random.bool(chance);
+		getCoin = coin;
+		space = spaceCountDown;
+		hitPlayer = hitP;
 		trace("setup boss done");
 	}
 }

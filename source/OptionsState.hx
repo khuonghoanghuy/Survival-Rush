@@ -2,10 +2,13 @@ package;
 
 import flixel.FlxG;
 import flixel.text.FlxText;
+import flixel.ui.FlxButton;
 
 class OptionsState extends MainState
 {
 	var text:FlxText;
+	// button list
+	var harderMode:FlxButton;
 
 	override public function create()
 	{
@@ -16,6 +19,10 @@ class OptionsState extends MainState
 		text.scrollFactor.set();
 		text.alignment = CENTER;
 		add(text);
+
+		harderMode = new FlxButton(0, 0, "HARDER MODE", harderModeChangeSave);
+		harderMode.scrollFactor.set();
+		add(harderMode);
 	}
 
 	override public function update(elapsed:Float)
@@ -26,5 +33,10 @@ class OptionsState extends MainState
 		{
 			FlxG.switchState(new MainMenuState());
 		}
+	}
+
+	function harderModeChangeSave()
+	{
+		FlxG.save.data.harderMode = !FlxG.save.data.harderMode;
 	}
 }
