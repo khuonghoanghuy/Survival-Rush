@@ -20,6 +20,8 @@ class MainMenuState extends MainState
 	var selectText:FlxText;
 	var selectString:String = '';
 
+	var descText:FlxText;
+
 	override public function create()
 	{
 		super.create();
@@ -32,24 +34,29 @@ class MainMenuState extends MainState
 		text.alignment = CENTER;
 		add(text);
 
-		buttonStart = new FlxButton(beingX, 100, "Start", get_start);
+		buttonStart = new FlxButton(beingX, 200, "Start", get_start);
 		add(buttonStart);
 
-		buttonShop = new FlxButton(beingX, 150, "Shop", get_shop);
+		buttonShop = new FlxButton(beingX, 250, "Shop", get_shop);
 		add(buttonShop);
 
-		buttonOptions = new FlxButton(beingX, 200, "Options", get_options);
+		buttonOptions = new FlxButton(beingX, 300, "Options", get_options);
 		add(buttonOptions);
 
 		#if sys
-		buttonExit = new FlxButton(beingX, 250, "Exit", get_exit);
+		buttonExit = new FlxButton(beingX, 350, "Exit", get_exit);
 		add(buttonExit);
 		#end
 
-		selectText = new FlxText(10, FlxG.height - 22, 0, "< " + selectString + " >", 12);
+		selectText = new FlxText(382, 277, 0, "< " + selectString + " >", 12);
 		selectText.alignment = LEFT;
 		selectText.scrollFactor.set();
 		add(selectText);
+
+		descText = new FlxText(358, 258, 0, "", 16);
+		descText.scrollFactor.set();
+		descText.alignment = CENTER;
+		add(descText);
 	}
 
 	override public function update(elapsed:Float)
@@ -62,15 +69,20 @@ class MainMenuState extends MainState
 		{
 			case 0:
 				selectString = "GOOLY GUY";
+				descText.text = "A Basic Boss Guy";
 			case 1:
 				selectString = "MAN WITH STICK";
+				descText.text = "That guy had a Stick!";
+			case 2:
+				selectString = "A BALL";
+				descText.text = "Why a ball here?";
 		}
 
 		if (FlxG.keys.justPressed.LEFT)
 		{
 			if (selectBoss == 0)
 			{
-				selectBoss = 1;
+				selectBoss = 2;
 			}
 			else
 			{
@@ -80,7 +92,7 @@ class MainMenuState extends MainState
 
 		if (FlxG.keys.justPressed.RIGHT)
 		{
-			if (selectBoss == 1)
+			if (selectBoss == 2)
 			{
 				selectBoss = 0;
 			}
@@ -112,7 +124,8 @@ class MainMenuState extends MainState
 	{
 		FlxG.camera.flash(FlxColor.WHITE, 1, function()
 		{
-			openSubState(new WarmSubState("!HEY!\nThat Feature is not working yet!\nPlease wait for a update!\n\nPress ANY Key to close", false));
+			// openSubState(new WarmSubState("!HEY!\nThat Feature is not working yet!\nPlease wait for a update!\n\nPress ANY Key to close", false));
+			FlxG.switchState(new OptionsState());
 		});
 	}
 

@@ -33,9 +33,10 @@ class MustUpdateState extends MainState
 		{
 			FlxG.openURL("https://github.com/khuonghoanghuy/Survival-Rush/releases");
 		}
-		else
+
+		if (FlxG.keys.justPressed.ESCAPE)
 		{
-			FlxG.switchState(new MustUpdateState());
+			FlxG.switchState(new MainMenuState());
 		}
 	}
 }

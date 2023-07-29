@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="ball.png">
+	<!-- Created with Adobe Animate version 20.0.2.22168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="getHIT0000" x="0" y="0" width="252" height="233"/>
+	<SubTexture name="getHIT0001" x="0" y="0" width="252" height="233"/>
+	<SubTexture name="getHIT0002" x="252" y="0" width="252" height="233"/>
+	<SubTexture name="getHIT0003" x="252" y="0" width="252" height="233"/>
+	<SubTexture name="getHIT0004" x="504" y="0" width="252" height="233"/>
+	<SubTexture name="getHIT0005" x="504" y="0" width="252" height="233"/>
+	<SubTexture name="idle0000" x="756" y="0" width="252" height="233"/>
+	<SubTexture name="idle0001" x="756" y="0" width="252" height="233"/>
+	<SubTexture name="idle0002" x="0" y="233" width="252" height="233"/>
+	<SubTexture name="idle0003" x="0" y="233" width="252" height="233"/>
+</TextureAtlas>

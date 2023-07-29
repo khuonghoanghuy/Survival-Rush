@@ -24,15 +24,22 @@ class Boss extends FlxSprite
 				frames = FlxAtlasFrames.fromSparrow(AssetPaths.goolyBoss__png, AssetPaths.goolyBoss__xml);
 				animation.addByPrefix("idle", "idle", 24, false);
 				animation.addByPrefix("hit", "getHIT", 24, false);
-				animation.play("idle", false);
+				animation.play("idle", true);
 				setupBoss(216, -130, 199, 541, 0.5, 0.5, 250, 1, 30, 20, 100);
 
 			case 1: // MAN WITH STICK
 				frames = FlxAtlasFrames.fromSparrow(AssetPaths.manWithStick__png, AssetPaths.manWithStick__xml);
 				animation.addByPrefix("idle", "idle", 24, false);
 				animation.addByPrefix("hit", "getHIT", 24, false);
-				animation.play("idle", false);
+				animation.play("idle", true);
 				setupBoss(170, -81, 0, 0, 0.5, 0.5, 500, 10, 35, 50, 200);
+
+			case 2: // BALL
+				frames = FlxAtlasFrames.fromSparrow(AssetPaths.ball__png, AssetPaths.ball__xml);
+				animation.addByPrefix("idle", "idle", 24, false);
+				animation.addByPrefix("hit", "getHIT", 24, false);
+				animation.play("idle", true);
+				setupBoss(188, 48, 0, 0, 0.7, 0.7, 200, 2, 21, 15, 100);
 		}
 	}
 
