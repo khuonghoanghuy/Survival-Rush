@@ -3,11 +3,11 @@ package;
 import flixel.FlxG;
 import flixel.FlxState;
 import flixel.text.FlxText;
+import lime.app.Application;
 
 class MainState extends FlxState
 {
 	var versionText:FlxText;
-	var version:String = '1.0.0';
 
 	override public function create():Void
 	{
@@ -18,7 +18,7 @@ class MainState extends FlxState
 		flixel.addons.studio.FlxStudio.create();
 		#end
 
-		versionText = new FlxText(10, 10, 0, "Version: v" + version, 12);
+		versionText = new FlxText(10, 10, 0, "Version: v" + Application.current.meta.get("version"), 12);
 		versionText.scrollFactor.set();
 		versionText.cameras = [FlxG.cameras.list[0]];
 		add(versionText);

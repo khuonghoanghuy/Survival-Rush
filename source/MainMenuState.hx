@@ -63,7 +63,7 @@ class MainMenuState extends MainState
 			case 0:
 				selectString = "GOOLY GUY";
 			case 1:
-				selectString = "BIG MAN";
+				selectString = "MAN WITH STICK";
 		}
 
 		if (FlxG.keys.justPressed.LEFT)

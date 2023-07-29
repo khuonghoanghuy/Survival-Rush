@@ -25,7 +25,14 @@ class Boss extends FlxSprite
 				animation.addByPrefix("idle", "idle", 24, false);
 				animation.addByPrefix("hit", "getHIT", 24, false);
 				animation.play("idle", false);
-				setBoss(216, -130, 199, 541, 0.5, 0.5, 250, 1, 30, 20, 100);
+				setupBoss(216, -130, 199, 541, 0.5, 0.5, 250, 1, 30, 20, 100);
+
+			case 1: // MAN WITH STICK
+				frames = FlxAtlasFrames.fromSparrow(AssetPaths.manWithStick__png, AssetPaths.manWithStick__xml);
+				animation.addByPrefix("idle", "idle", 24, false);
+				animation.addByPrefix("hit", "getHIT", 24, false);
+				animation.play("idle", false);
+				setupBoss(170, -81, 0, 0, 0.5, 0.5, 500, 10, 35, 50, 200);
 		}
 	}
 
@@ -40,7 +47,13 @@ class Boss extends FlxSprite
 		}
 	}
 
-	function setBoss(x:Float, y:Float, w:Float, h:Float, sc1:Float, sc2:Float, live:Float, hitP:Int, randomChance:Float, spaceCountDown:Int, coin:Int)
+	/**
+		A Simple Base Fully Setup Boss like:
+		- X Postion
+		- Y Postion
+		And other stuff
+	**/
+	function setupBoss(x:Float, y:Float, w:Float, h:Float, sc1:Float, sc2:Float, live:Float, hitP:Int, randomChance:Float, spaceCountDown:Int, coin:Int)
 	{
 		trace("getting setup boss");
 		this.x = x;
