@@ -59,6 +59,14 @@ class MainMenuState extends MainState
 		descText.alignment = CENTER;
 		add(descText);
 
+		if (FlxG.save.data.harderMode)
+		{
+			var warmText:FlxText = new FlxText(10, FlxG.height - 44, 0, "YOU ARE ENABLE HARDER MODE!", 12);
+			warmText.scrollFactor.set();
+			warmText.alignment = LEFT;
+			add(warmText);
+		}
+
 		hintText = new FlxText(10, FlxG.height - 22, 0, "PRESS R TO PLAY AS RUSH MODE: " + FlxG.save.data.rushMode, 12);
 		hintText.scrollFactor.set();
 		hintText.alignment = LEFT;

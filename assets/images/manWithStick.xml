@@ -2,14 +2,14 @@
 <TextureAtlas imagePath="manWithStick.png">
 	<!-- Created with Adobe Animate version 20.0.2.22168 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="getHit0000" x="0" y="0" width="253" height="442" frameX="-3" frameY="0" frameWidth="258" frameHeight="442"/>
-	<SubTexture name="getHit0001" x="0" y="0" width="253" height="442" frameX="-3" frameY="0" frameWidth="258" frameHeight="442"/>
-	<SubTexture name="getHit0002" x="253" y="0" width="257" height="442" frameX="-1" frameY="0" frameWidth="258" frameHeight="442"/>
-	<SubTexture name="getHit0003" x="253" y="0" width="257" height="442" frameX="-1" frameY="0" frameWidth="258" frameHeight="442"/>
-	<SubTexture name="getHit0004" x="510" y="0" width="257" height="442" frameX="-1" frameY="0" frameWidth="258" frameHeight="442"/>
-	<SubTexture name="getHit0005" x="510" y="0" width="257" height="442" frameX="-1" frameY="0" frameWidth="258" frameHeight="442"/>
-	<SubTexture name="getHit0006" x="767" y="0" width="256" height="442" frameX="0" frameY="0" frameWidth="258" frameHeight="442"/>
-	<SubTexture name="getHit0007" x="767" y="0" width="256" height="442" frameX="0" frameY="0" frameWidth="258" frameHeight="442"/>
+	<SubTexture name="getHIT0000" x="0" y="0" width="253" height="442" frameX="-3" frameY="0" frameWidth="258" frameHeight="442"/>
+	<SubTexture name="getHIT0001" x="0" y="0" width="253" height="442" frameX="-3" frameY="0" frameWidth="258" frameHeight="442"/>
+	<SubTexture name="getHIT0002" x="253" y="0" width="257" height="442" frameX="-1" frameY="0" frameWidth="258" frameHeight="442"/>
+	<SubTexture name="getHIT0003" x="253" y="0" width="257" height="442" frameX="-1" frameY="0" frameWidth="258" frameHeight="442"/>
+	<SubTexture name="getHIT0004" x="510" y="0" width="257" height="442" frameX="-1" frameY="0" frameWidth="258" frameHeight="442"/>
+	<SubTexture name="getHIT0005" x="510" y="0" width="257" height="442" frameX="-1" frameY="0" frameWidth="258" frameHeight="442"/>
+	<SubTexture name="getHIT0006" x="767" y="0" width="256" height="442" frameX="0" frameY="0" frameWidth="258" frameHeight="442"/>
+	<SubTexture name="getHIT0007" x="767" y="0" width="256" height="442" frameX="0" frameY="0" frameWidth="258" frameHeight="442"/>
 	<SubTexture name="idle0000" x="0" y="442" width="253" height="442"/>
 	<SubTexture name="idle0001" x="0" y="442" width="253" height="442"/>
 	<SubTexture name="idle0002" x="253" y="442" width="252" height="440" frameX="-1" frameY="-2" frameWidth="253" frameHeight="442"/>

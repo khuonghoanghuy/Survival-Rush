@@ -25,21 +25,21 @@ class Boss extends FlxSprite
 				animation.addByPrefix("idle", "idle", 24, false);
 				animation.addByPrefix("hit", "getHIT", 24, false);
 				animation.play("idle", true);
-				setupBoss(216, -130, 199, 541, 0.5, 0.5, 250, 1, 30, 20, 100);
+				setupBoss(216, -130, 199, 541, 0.5, 0.5, 50, 1, 30, 20, 100);
 
 			case 1: // MAN WITH STICK
 				frames = FlxAtlasFrames.fromSparrow(AssetPaths.manWithStick__png, AssetPaths.manWithStick__xml);
 				animation.addByPrefix("idle", "idle", 24, false);
 				animation.addByPrefix("hit", "getHIT", 24, false);
 				animation.play("idle", true);
-				setupBoss(170, -81, 0, 0, 0.5, 0.5, 500, 10, 35, 50, 200);
+				setupBoss(170, -81, 0, 0, 0.5, 0.5, 100, 5, 35, 50, 200);
 
 			case 2: // BALL
 				frames = FlxAtlasFrames.fromSparrow(AssetPaths.ball__png, AssetPaths.ball__xml);
 				animation.addByPrefix("idle", "idle", 24, false);
 				animation.addByPrefix("hit", "getHIT", 24, false);
 				animation.play("idle", true);
-				setupBoss(188, 48, 0, 0, 0.7, 0.7, 200, 2, 21, 15, 100);
+				setupBoss(188, 48, 0, 0, 0.7, 0.7, 30, 1, 21, 15, 100);
 		}
 	}
 
@@ -68,12 +68,23 @@ class Boss extends FlxSprite
 		this.width = w;
 		this.height = h;
 		scale.set(sc1, sc2);
-		this.health = live;
-		chance = randomChance;
+		if (FlxG.save.data.harderMode)
+		{
+			this.health = live * 2; // x2
+			chance = randomChance * 1.5; // x1.5
+			getCoin = coin - 10; // -10
+			space = spaceCountDown * 1; // x1
+			hitPlayer = hitP * 1; // x1
+		}
+		else
+		{
+			this.health = live;
+			chance = randomChance;
+			getCoin = coin;
+			space = spaceCountDown;
+			hitPlayer = hitP;
+		}
 		FlxG.random.bool(chance);
-		getCoin = coin;
-		space = spaceCountDown;
-		hitPlayer = hitP;
 		trace("setup boss done");
 	}
 }
