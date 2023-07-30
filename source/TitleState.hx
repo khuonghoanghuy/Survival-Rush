@@ -20,21 +20,8 @@ class TitleState extends MainState
 	{
 		super.create();
 
-		var http = new haxe.Http("https://raw.githubusercontent.com/khuonghoanghuy/Survival-Rush/main/gameVersion.txt");
-		http.onData = function(data:String)
-		{
-			updateVersion = data.split('\n')[0].trim();
-			var curVersion:String = version.trim();
-			if (updateVersion != curVersion)
-				mustUpdate = true;
-		}
-
-		http.onError = function(error)
-		{
-			trace('error: $error');
-		}
-
-		http.request();
+		getCheck("version");
+		getCheck("save");
 
 		text = new FlxText(183, 72, 268, "Survival Rush", 32);
 		text.height = 44;
@@ -67,5 +54,33 @@ class TitleState extends MainState
 			FlxG.switchState(new MustUpdateState());
 		else
 			FlxG.switchState(new MainMenuState());
+	}
+
+	function getCheck(type:String)
+	{
+		switch (type)
+		{
+			case "version":
+				trace("check version");
+				var http = new haxe.Http("https://raw.githubusercontent.com/khuonghoanghuy/Survival-Rush/main/gameVersion.txt");
+				http.onData = function(data:String)
+				{
+					updateVersion = data.split('\n')[0].trim();
+					var curVersion:String = version.trim();
+					if (updateVersion != curVersion)
+						mustUpdate = true;
+				}
+
+				http.onError = function(error)
+				{
+					trace('error: $error');
+				}
+
+				http.request();
+
+			case "save":
+				trace("check save");
+				FlxG.save.bind("dataGame", "survivalRush");
+		}
 	}
 }
