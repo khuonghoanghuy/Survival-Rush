@@ -26,7 +26,7 @@ class Boss extends FlxSprite
 				frames = FlxAtlasFrames.fromSparrow(AssetPaths.goolyBoss__png, AssetPaths.goolyBoss__xml);
 				animation.addByPrefix("idle", "idle", 24, false);
 				animation.addByPrefix("hit", "getHIT", 24, false);
-				animation.play("idle", true);
+				animation.play("idle", false);
 				if (bool)
 					setupBoss(216, -130, 199, 541, 0.5, 0.5, 100, 2, 35, 20, 100);
 				else
@@ -36,7 +36,7 @@ class Boss extends FlxSprite
 				frames = FlxAtlasFrames.fromSparrow(AssetPaths.manWithStick__png, AssetPaths.manWithStick__xml);
 				animation.addByPrefix("idle", "idle", 24, false);
 				animation.addByPrefix("hit", "getHIT", 24, false);
-				animation.play("idle", true);
+				animation.play("idle", false);
 				if (bool)
 					setupBoss(170, -81, 0, 0, 0.5, 0.5, 100, 5, 35, 50, 200);
 				else
@@ -46,11 +46,31 @@ class Boss extends FlxSprite
 				frames = FlxAtlasFrames.fromSparrow(AssetPaths.ball__png, AssetPaths.ball__xml);
 				animation.addByPrefix("idle", "idle", 24, false);
 				animation.addByPrefix("hit", "getHIT", 24, false);
-				animation.play("idle", true);
+				animation.play("idle", false);
 				if (bool)
 					setupBoss(188, 48, 0, 0, 0.7, 0.7, 60, 2, 24, 30, 100);
 				else
 					setupBoss(188, 48, 0, 0, 0.7, 0.7, 30, 1, 21, 15, 100);
+
+			case 3: // GOOLY WITH GUN
+				frames = FlxAtlasFrames.fromSparrow(AssetPaths.goolyGun__png, AssetPaths.goolyGun__xml);
+				animation.addByPrefix("idle", "idle", 24, false);
+				animation.addByPrefix("hit", "getHIT", 24, false);
+				animation.play("idle", false);
+				if (bool)
+					setupBoss(0, 0, 0, 0, 0.5, 0.5, 250, 40, 30, 50, 125);
+				else
+					setupBoss(0, 0, 0, 0, 0.5, 0.5, 100, 10, 15, 25, 125);
+
+			default: // DEFAULT - GOOLY
+				frames = FlxAtlasFrames.fromSparrow(AssetPaths.goolyBoss__png, AssetPaths.goolyBoss__xml);
+				animation.addByPrefix("idle", "idle", 24, false);
+				animation.addByPrefix("hit", "getHIT", 24, false);
+				animation.play("idle", false);
+				if (bool)
+					setupBoss(216, -130, 199, 541, 0.5, 0.5, 100, 2, 35, 20, 100);
+				else
+					setupBoss(216, -130, 199, 541, 0.5, 0.5, 50, 1, 30, 20, 100);
 		}
 	}
 

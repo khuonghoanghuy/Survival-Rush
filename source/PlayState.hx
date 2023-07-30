@@ -39,8 +39,10 @@ class PlayState extends MainState
 		buttonSPACE.scrollFactor.set();
 		add(buttonSPACE);
 
-		tunpadTxt = new FlxText(248, 277, 0, "", 16);
+		tunpadTxt = new FlxText(0, 0, 0, "", 16);
 		tunpadTxt.scrollFactor.set();
+		tunpadTxt.screenCenter();
+		tunpadTxt.y += 50;
 		tunpadTxt.alignment = CENTER;
 		add(tunpadTxt);
 

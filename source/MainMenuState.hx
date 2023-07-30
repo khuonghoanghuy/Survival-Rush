@@ -92,13 +92,16 @@ class MainMenuState extends MainState
 			case 2:
 				selectString = "A BALL";
 				descText.text = "Why a ball here?";
+			case 3:
+				selectString = "GOOLY, BUT HE HAVE A GUN";
+				descText.text = "Who give him a gun?";
 		}
 
 		if (FlxG.keys.justPressed.LEFT)
 		{
 			if (selectBoss == 0)
 			{
-				selectBoss = 2;
+				selectBoss = 3;
 			}
 			else
 			{
@@ -108,7 +111,7 @@ class MainMenuState extends MainState
 
 		if (FlxG.keys.justPressed.RIGHT)
 		{
-			if (selectBoss == 2)
+			if (selectBoss == 3)
 			{
 				selectBoss = 0;
 			}
@@ -137,7 +140,8 @@ class MainMenuState extends MainState
 	{
 		FlxG.camera.flash(FlxColor.WHITE, 1, function()
 		{
-			openSubState(new WarmSubState("!HEY!\nThat Feature is not working yet!\nPlease wait for a update!\n\nPress ANY Key to close", false));
+			// openSubState(new WarmSubState("!HEY!\nThat Feature is not working yet!\nPlease wait for a update!\n\nPress ANY Key to close", false));
+			FlxG.switchState(new ShopState());
 		});
 	}
 

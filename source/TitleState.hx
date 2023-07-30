@@ -80,6 +80,7 @@ class TitleState extends MainState
 
 			case "save":
 				trace("check save");
+				SaveData.init();
 				FlxG.save.bind("dataGame", "survivalRush");
 		}
 	}
