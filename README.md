@@ -12,6 +12,6 @@ I Made this project for fun :v
 - Esc: Pause the game/Quit Game (if you in main menu)
 
 # Play Support:
-- Flash
+- Flash (Out Support)
 - HashLink
 - Neko (Recommend to Using)
